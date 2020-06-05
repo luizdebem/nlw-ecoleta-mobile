@@ -14,6 +14,7 @@ interface RouteParams {
 interface Data {
   point: {
     image: string;
+    image_url: string;
     name: string;
     email: string;
     whatsapp: string;
@@ -65,7 +66,7 @@ const Detail = () => {
           <Icon name="arrow-left" size={20} color="#34CB79" />
         </TouchableOpacity>
 
-        <Image style={styles.pointImage} source={{ uri: data.point.image }} />
+        <Image style={styles.pointImage} source={{ uri: api.defaults.baseURL + data.point.image_url.substring(21) }} />
 
         <Text style={styles.pointName}>{data.point.name}</Text>
         <Text style={styles.pointItems}>{data.items.map(item => item.title).join(', ')}</Text>
